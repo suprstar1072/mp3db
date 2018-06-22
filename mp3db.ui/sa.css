@@ -1,0 +1,137 @@
+fieldset {
+  font-weight:bold;
+}
+
+
+.framedpic {
+  max-width:100%;
+  border:6px groove #AAAAFF;
+  padding:3px;
+}
+
+td {
+	#background-color: #E0E0FF;
+	font-family: arial, helvetica;
+	font-size: 11pt;
+	line-height: 12pt;
+	color: #000000;
+        padding:0 15px 0 15px;
+}
+
+
+table#songtable tr:nth-of-type(even) {
+   background-color: #ccf;
+}
+table#songtable tr:nth-of-type(odd) {
+   background-color: #ddf;
+}
+table#songtable td:nth-of-type(odd) {
+   padding:5px 15px 5px 15px;
+}
+table#songtable td:nth-of-type(even) {
+   padding:5px 15px 5px 15px;
+}
+
+
+
+table#artisttable tr:nth-of-type(even) {
+   background-color: #ccf;
+}
+table#artisttable tr:nth-of-type(odd) {
+   background-color: #ddf;
+}
+table#artisttable td:nth-of-type(odd) {
+   padding:3px 15px 3px 15px;
+}
+table#artisttable td:nth-of-type(even) {
+   padding:3px 15px 3px 15px;
+}
+
+
+body {
+	background-color: #E0E0FF;
+	font-family: arial, helvetica;
+	font-size: 11pt;
+	line-height: 12pt;
+	color: #000000;
+        padding:0 15px 0 15px;
+}
+
+
+
+
+th {
+	background-color: #E0E0FF;
+	font-family: arial, helvetica;
+	font-size: 11pt;
+	line-height: 12pt;
+	color: #222222;
+	text-align:left;
+	font-weight: bold;
+	text-decoration:underline;
+        padding:0 0 0 15px;
+}
+
+input[type="text"], input[type="password"]
+{
+    height:18px
+}
+
+.smallTextbox {height: 18px}
+.smallButton {height: 20px}
+
+.small{
+	background-color: #E0E0FF;
+	font-family: arial, helvetica;
+	font-size: 9pt;
+	line-height: 10pt;
+	color: #000000;
+}
+
+a.boldlink {
+        font-family: arial, helvetica;
+        font-size: 11pt;
+        font-style: normal;
+        line-height: 12pt;
+        font-weight: bold;
+        font-variant: normal;
+        color: #DD2222;
+        text-decoration: underline;
+}
+
+a {
+        font-family: arial, helvetica;
+        font-size: 11pt;
+        font-style: normal;
+        line-height: 12pt;
+        font-weight: normal;
+        font-variant: normal;
+        color: #4444FF;
+        text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+hr {
+        margin: 0px;
+        padding: 0px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #AFAFC7;
+        width : 100%;
+}
+
+
+td.trademark{ 
+	background-color: #888888;  
+	font-family: arial, helvetica;
+	font-size: 7pt;
+	font-style: normal;
+	line-height: 8pt;
+	font-weight: normal;
+	font-variant: normal;
+	color: #000000;
+} 
+
