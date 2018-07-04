@@ -8,15 +8,20 @@ $rdi = new RecursiveDirectoryIterator($PATH);
 $counter=0;
 foreach (new RecursiveIteratorIterator($rdi) as $filename => $file) {
 
-	//if ( $counter>10 )
-	//	break;
+	$counter++;
+	print "$counter -----------------------------------------------------------------------------------\n";
+	print "filename='".$filename."'\n";
+	print_r($file);
+	print "".$file->getSize()."\n";
+
+	if ( $counter>10 )
+		break;
+	continue;
+
 
 	if ( substr($filename,-3)=="/.." || substr($filename,-2)=="/." )
 		continue;
 
-	$counter++;
-	print "$counter -----------------------------------------------------------------------------------\n";
-	print $filename."\n";
 
 	$pathss=preg_split('/\//',$filename);
 	print_r($pathss);

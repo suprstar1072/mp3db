@@ -1,5 +1,5 @@
-
 create database mp3db;
+grant all privileges on mp3db.* to mp3dbuser identified by '70833b53e76f06c967b925f';
 
 drop table mp3s;
 CREATE TABLE `mp3s` (

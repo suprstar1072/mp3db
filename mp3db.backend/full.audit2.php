@@ -4,16 +4,15 @@
 # reports any missing files that have db recs, or files with missing db recs.
 
 <?php
-require 'CONSTS.php';
+require_once 'CONSTS.php';
+require_once 'mp3.class.php';
 
 $PATHS=array('/DWH/MP3.car32/New');//,'/4TB-RAID5/MP3.D-list');
-$link = mysqli_connect($DB_HOST,$DB_USER,$DB_PASS,$DB_DB);
-$counter=0;
 
 
 // getting FILES array:
 print "getting FILES array:\n";
-$FILES=array();
+$MP3s=array();
 $counter=0;
 
 foreach ($PATHS as $PATH) {
@@ -37,22 +36,17 @@ foreach ($PATHS as $PATH) {
 		if ( strtolower(substr($filename,-4))!=".mp3" ) {
 			continue;
 		}
-
-		$md5=explode("  ", exec("md5sum ".escapeshellarg($filename)));
-
-		$output=array();
-
-		$FILES[$filename]=array(
-			"f_path"=>$filename,
-			"f_md5"=>$md5[0]
-		);
+		//print "Creating mp3 object.\n";
+		$MP3s[$filename]=new MP3($filename);
+		$MP3s[$filename]->display();
 
 	} // end foreach file
 } // end foreach PATH...
-print "\n\nFILES array complete. [".$counter."][".count($FILES)."]\n\n";
+print "\n\nMP3s array complete. [".$counter."][".count($MP3s)."]\n\n";
 
 
 // getting DB array:
+//$link = mysqli_connect($DB_HOST,$DB_USER,$DB_PASS,$DB_DB);
 foreach ($PATHS as $PATH) {
 	print "getting DB array:\n";
 	$res=select("select * from mp3s where f_path like '".$PATH."%'");
@@ -80,25 +74,33 @@ print "DB array complete. [".$counter."][".count($DBRECS)."\n\n";
 
 
 // comparing db and files arrays:
-print "Comparing ".count($FILES)." FILES to ".count($DBRECS)." DBRECS:\n";
+print "Comparing ".count($MP3s)." FILES to ".count($DBRECS)." DBRECS:\n";
 $errors=0;
 $acounter=0;
 
 
 // checking files against db:
-foreach ( $FILES as $file ) {
-	if ( !isset($DBRECS[$file['f_path']]) ) {
+foreach ( $MP3s as $mp3 ) {
+
+	$mp3data=$mp3->getMp3Data();
+
+	print "mp3data:\n";
+	print_r($mp3data);
+
+	if ( !isset($DBRECS[$mp3data['filename']]) ) {
 		print "================================================\n";
-		print "ERROR: File ".$file['f_path']." has no DB rec..\n";
+		print "ERROR: File ".$mp3data['filename']." has no DB rec..\n";
 		print "================================================\n";
 		$errors++;
+		$mp3->save();
 		continue;
 	}
-	$rec=$DBRECS[$file['f_path']];
-	if ( $file['f_md5'] != $rec['f_md5'] ) {
-		print "ERROR: File ".$file['f_path']." dbrec mismatch:\n";
+
+	$rec=$DBRECS[$mp3data['filename']];
+	if ( $mp3data['md5'] != $rec['f_md5'] ) {
+		print "ERROR: File ".$mp3data['filename']." dbrec mismatch:\n";
 		print "--------------------- FILE: ----------------------\n";
-		print_r($file);
+		$mp3->display();
 		print "--------------------- REC: ----------------------\n";
 		print_r($rec);
 		print "-------------------------------------------------\n";
@@ -109,6 +111,7 @@ foreach ( $FILES as $file ) {
 }
 print "Found ".$errors." errors checking files against db..\n\n";
 
+return;
 
 // checking db against files:
 print "Comparing ".count($DBRECS)." DBRECS to ".count($FILES)." FILES:\n";

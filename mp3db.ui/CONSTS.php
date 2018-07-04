@@ -1,7 +1,7 @@
-<?
+<?php
 $MYSQL_HOST="localhost";
-$MYSQL_USER="root";
-$MYSQL_PASS="T@5tytr3@t5";
+$MYSQL_USER="mp3dbuser";
+$MYSQL_PASS="70833b53e76f06c967b925f";
 $MYSQL_DB="mp3db";
 
 // these must be specified now..
@@ -13,7 +13,8 @@ $BASE_URL="http://www.supr-star.com/mp3db";
 function renderTableHeaders($url="",$sortby="",$dir="") {
   if ( !$url ) {
     print "<TR>";
-    print "<TH>Artist</TH>";
+    print "<TH>FID</TH>";
+    print "<TH>Album</TH>";
     print "<TH>Album</TH>";
     print "<TH>Track</TH>";
     print "<TH>Title</TH>";
@@ -23,6 +24,16 @@ function renderTableHeaders($url="",$sortby="",$dir="") {
   } else {
 
     print "<TR>";
+
+    // fid header
+    print "<TH><A HREF='$url";
+    if ( $dir )
+	print "&dir=".$dir;
+    print "&sortby=f_id";
+    if ( $sortby=="f_id" )
+	print " desc";
+    print "'><B>FID</A></TH>";
+
     // artist header
     print "<TH><A HREF='$url";
     if ( $dir )
@@ -147,6 +158,7 @@ function renderTable($recs,$url="",$sortby="",$playlisth,$dir) {
 // if you change the fields rendered, change the headers in renderTableHeaders()
 function renderRow($row,$field) {
     print "<TR>";
+    print "<TD><A HREF='showrec.php?f_id=".$row['f_id']."'>".$row['f_id']."</A></TD>";
     print "<TD><A HREF='globalsearch.php?search=".$row['f_artist']."'>".$row['f_artist']."</A></TD>";
     print "<TD>".$row['f_album']."</TD>";
     print "<TD>".$row['f_track']."</TD>";
