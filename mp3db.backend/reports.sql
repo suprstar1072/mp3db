@@ -1,14 +1,25 @@
 select * from mp3s where f_artist='';
 
 
+select * from mp3s where f_md5 in (
+	select m
+	from (
+		select f_size s,f_md5 m,count(*) c
+		from mp3s group by f_size,f_md5
+	) xx
+	where c>1
+)
+;
+
+
+
 # list dup's
-select *,(c-1)*s saved
+select m,c
 from (
-	select f_size s,f_md5 m,count(*) c
-	from mp3s group by f_size,f_md5
+	select f_md5 m,count(*) c
+	from mp3s group by f_md5
 ) xx
 where c>1
-order by saved
 ;
 
 # total saved space if remove all dup's

@@ -1,2 +1,2 @@
-./import.eyed3.php &> import.log &
+./import.php &> import.log &
 tail -f import.log

@@ -1,5 +1,7 @@
 <?php
 require_once 'CONSTS.php';
+
+
 include 'header.php';
 
 $f_id=$_GET['f_id'];

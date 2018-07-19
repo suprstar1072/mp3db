@@ -1,12 +1,12 @@
 fieldset {
-  font-weight:bold;
+	font-weight:bold;
 }
 
 
 .framedpic {
-  max-width:100%;
-  border:6px groove #AAAAFF;
-  padding:3px;
+	max-width:100%;
+	border:6px groove #AAAAFF;
+	padding:3px;
 }
 
 td {
@@ -15,36 +15,36 @@ td {
 	font-size: 11pt;
 	line-height: 12pt;
 	color: #000000;
-        padding:0 15px 0 15px;
+	padding:0 15px 0 15px;
 }
 
 
 table#songtable tr:nth-of-type(even) {
-   background-color: #ccf;
+	background-color: #ccf;
 }
 table#songtable tr:nth-of-type(odd) {
-   background-color: #ddf;
+	background-color: #ddf;
 }
 table#songtable td:nth-of-type(odd) {
-   padding:5px 15px 5px 15px;
+	padding:5px 15px 5px 15px;
 }
 table#songtable td:nth-of-type(even) {
-   padding:5px 15px 5px 15px;
+	padding:5px 15px 5px 15px;
 }
 
 
 
 table#artisttable tr:nth-of-type(even) {
-   background-color: #ccf;
+	background-color: #ccf;
 }
 table#artisttable tr:nth-of-type(odd) {
-   background-color: #ddf;
+	background-color: #ddf;
 }
 table#artisttable td:nth-of-type(odd) {
-   padding:3px 15px 3px 15px;
+	padding:3px 15px 3px 15px;
 }
 table#artisttable td:nth-of-type(even) {
-   padding:3px 15px 3px 15px;
+	padding:3px 15px 3px 15px;
 }
 
 
@@ -54,7 +54,7 @@ body {
 	font-size: 11pt;
 	line-height: 12pt;
 	color: #000000;
-        padding:0 15px 0 15px;
+	padding:0 15px 0 15px;
 }
 
 
@@ -69,12 +69,12 @@ th {
 	text-align:left;
 	font-weight: bold;
 	text-decoration:underline;
-        padding:0 0 0 15px;
+	padding:0 0 0 15px;
 }
 
 input[type="text"], input[type="password"]
 {
-    height:18px
+	height:18px
 }
 
 .smallTextbox {height: 18px}
@@ -89,25 +89,25 @@ input[type="text"], input[type="password"]
 }
 
 a.boldlink {
-        font-family: arial, helvetica;
-        font-size: 11pt;
-        font-style: normal;
-        line-height: 12pt;
-        font-weight: bold;
-        font-variant: normal;
-        color: #DD2222;
-        text-decoration: underline;
+	font-family: arial, helvetica;
+	font-size: 11pt;
+	font-style: normal;
+	line-height: 12pt;
+	font-weight: bold;
+	font-variant: normal;
+	color: #DD2222;
+	text-decoration: underline;
 }
 
 a {
-        font-family: arial, helvetica;
-        font-size: 11pt;
-        font-style: normal;
-        line-height: 12pt;
-        font-weight: normal;
-        font-variant: normal;
-        color: #4444FF;
-        text-decoration: none;
+	font-family: arial, helvetica;
+	font-size: 11pt;
+	font-style: normal;
+	line-height: 12pt;
+	font-weight: normal;
+	font-variant: normal;
+	color: #4444FF;
+	text-decoration: none;
 }
 
 a:hover {
@@ -115,12 +115,12 @@ a:hover {
 }
 
 hr {
-        margin: 0px;
-        padding: 0px;
-        border-width: 1px;
-        border-style: solid;
-        border-color: #AFAFC7;
-        width : 100%;
+	margin: 0px;
+	padding: 0px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #AFAFC7;
+	width : 100%;
 }
 
 

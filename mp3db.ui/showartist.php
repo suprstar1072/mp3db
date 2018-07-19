@@ -1,4 +1,4 @@
-<?
+<?php
 require_once 'CONSTS.php';
 include 'header.php';
 

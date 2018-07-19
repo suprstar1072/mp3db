@@ -19,6 +19,8 @@ Run with --help/-h for usage information or see the man page 'eyeD3(1)'
 This is the piece that will go thru your music directory and index all your
 music.  You need php7, mysql, and eyeD3 installed.
 
+Edit CONSTS.php and enter your MySQL and path info.
+
 
 -------------------------------------------------------------------------
 -------------------------------------------------------------------------
